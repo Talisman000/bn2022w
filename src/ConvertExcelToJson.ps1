@@ -36,7 +36,14 @@ function GetMonsterList($sheet, $headers, $dataRawBegin, $dataColumnBegin, $maxM
         }
         for ($j = 0; $j -lt $headers.Count; $j++) {
             $cell = $sheet.Cells.Item($i, $j + $dataColumnBegin)
-            $map.Add($headers[$j], $cell.Text)
+            $cellInt = 0
+            $tryParse = [int]::TryParse($cell.Text, [ref]$cellInt)
+            if ($tryParse) {
+                $map.Add($headers[$j], $cellInt)
+            }
+            else {
+                $map.Add($headers[$j], $cell.Text)
+            }
         }
         $monsterList += $map
     }

@@ -3,65 +3,65 @@
     {
       "label": "demon",
       "name": "デーモン　",
-      "hp": "800",
-      "ap": "40",
-      "dp": "25",
+      "hp": 800,
+      "ap": 40,
+      "dp": 25,
       "hand": "stone"
     },
     {
       "label": "dragon",
       "name": "ドラゴン　",
-      "hp": "900",
-      "ap": "45",
-      "dp": "10",
+      "hp": 900,
+      "ap": 45,
+      "dp": 10,
       "hand": "stone"
     },
     {
       "label": "ghost",
       "name": "ゴースト　",
-      "hp": "500",
-      "ap": "20",
-      "dp": "25",
+      "hp": 500,
+      "ap": 20,
+      "dp": 25,
       "hand": "scissors"
     },
     {
       "label": "harpy",
       "name": "ハーピィ　",
-      "hp": "600",
-      "ap": "30",
-      "dp": "20",
+      "hp": 600,
+      "ap": 30,
+      "dp": 20,
       "hand": "paper"
     },
     {
       "label": "ninja",
       "name": "ニンジャ　",
-      "hp": "400",
-      "ap": "85",
-      "dp": "20",
+      "hp": 400,
+      "ap": 85,
+      "dp": 20,
       "hand": "scissors"
     },
     {
       "label": "slime",
       "name": "スライム　",
-      "hp": "200",
-      "ap": "10",
-      "dp": "90",
+      "hp": 200,
+      "ap": 10,
+      "dp": 90,
       "hand": "stone"
     },
     {
       "label": "vampire",
       "name": "バンパイア",
-      "hp": "700",
-      "ap": "15",
-      "dp": "60",
+      "hp": 700,
+      "ap": 15,
+      "dp": 60,
       "hand": "paper"
     },
     {
       "label": "zombie",
       "name": "ゾンビ　　",
-      "hp": "300",
-      "ap": "20",
-      "dp": "30",
+      "hp": 300,
+      "ap": 20,
+      "dp": 30,
       "hand": "paper"
     }
   ]
