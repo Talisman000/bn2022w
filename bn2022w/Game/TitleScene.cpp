@@ -1,10 +1,12 @@
 ﻿#include "stdafx.h"
 #include "TitleScene.h"
 
+const String kVersion = U"ver.0.1.0";
 TitleScene::TitleScene(const InitData& init) :IScene{ init }
 {
-	Scene::SetBackground(ColorF{0.1, 0.1, 0.1});
+	Scene::SetBackground(ColorF{ 0.1, 0.1, 0.1 });
 	m_titleText = Font{ 100, Typeface::Light }(U"Wordnnect");
+	m_versionText = Font{ 18, Typeface::Light }(kVersion);
 	auto startWord = Word(U"system_0_start", U"つなげる", U"Connect", U"연결하다", U"连接");
 	auto start_left = WordObject(startWord, "ja");
 	auto start_rignt = WordObject(startWord);
@@ -60,6 +62,7 @@ void TitleScene::update()
 void TitleScene::draw() const
 {
 	m_titleText.drawAt(400, 200);
+	m_versionText.drawAt(44, 585);
 	if (m_selectedWord != nullptr)
 	{
 		Line(m_selectedWord->Position(), Cursor::Pos()).draw(Palette::White);

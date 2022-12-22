@@ -102,7 +102,6 @@ void WordObject::DeSelect()
 
 void WordObject::SetPositionTarget(const Vec2 pos)
 {
-	Print << pos;
 	m_positionTarget = pos;
 }
 
