@@ -2,9 +2,17 @@
 #include "GameScene.h"
 
 #include "BubbleEffect.h"
+#include "WordReader.h"
 
 GameScene::GameScene(const InitData& init) : IScene{init}
 {
+	WordReader wordReader;
+	auto list = wordReader.Load();
+	for (auto& word: list)
+	{
+		m_wordList.push_back(word);
+		
+	}
 	Scene::SetBackground(ColorF{0.1, 0.1, 0.1});
 	m_scoreManager.reset(new ScoreManager());
 	CreateWordObjects(3);
@@ -83,7 +91,7 @@ void GameScene::draw() const
 	m_scoreText.drawAt(x, 48, Palette::Snow);
 
 	m_progressBar.Draw(Vector2D(sceneRect.rightX() / 2, sceneRect.topY() + 80), sceneRect.w - 50,
-	                   m_elapsedTime/m_timeLimit);
+	                   m_elapsedTime / m_timeLimit);
 
 	if (m_selectedWord != nullptr)
 	{
@@ -103,9 +111,15 @@ void GameScene::ClearWordObjects()
 
 void GameScene::CreateWordObjects(int n)
 {
+	Word word = m_wordList[0];
 	for (int i = 0; i < n; i++)
 	{
-		auto obj = std::make_shared<WordObject>();
+		if (IsEven(i))
+		{
+			const auto random = Random(m_wordList.size() - 1);
+			word = m_wordList[random];
+		}
+		auto obj = std::make_shared<WordObject>(word);
 		m_wordObjects << obj;
 	}
 }

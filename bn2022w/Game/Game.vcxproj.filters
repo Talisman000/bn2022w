@@ -189,6 +189,9 @@
     <ClCompile Include="ResultScene.cpp">
       <Filter>Source Files\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="WordReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -777,6 +780,12 @@
     <None Include="App\engine\font\min\siv3d-min.woff">
       <Filter>Resource Files\engine\font\min</Filter>
     </None>
+    <None Include="App\file1.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\WordData.bin">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Media Include="App\example\test.mp3">
@@ -841,6 +850,12 @@
     </ClInclude>
     <ClInclude Include="ResultScene.h">
       <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="WordReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="App\resource.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

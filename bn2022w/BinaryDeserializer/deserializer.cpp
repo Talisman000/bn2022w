@@ -1,20 +1,14 @@
 #include <iostream>
 #include <fstream>
+#include <flatbuffers/util.h>
 
-#include "MonsterData_generated.h"
+#include <WordData_generated.h>
 
 using namespace std;
-using namespace Bn2022w::MonsterData;
+using namespace Bn2022w::WordData;
 
 int main()
 {
-	ifstream fin("../../MonsterData/MonsterData.bin", ios::in | ios::binary);
-	if (!fin)
-	{
-		return 1;
-	}
-
-	auto begin = fin.tellg();
-	fin.seekg(0, fin.end);
-
+	std::vector<uint8_t> dataBuffer;
+	std::vector<WordList> wordList;
 }

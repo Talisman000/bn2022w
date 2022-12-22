@@ -66,9 +66,9 @@ function GetMonsterList($sheet, $headers, $dataRawBegin, $dataColumnBegin, $maxM
 
 function Main() {
     # config
-    $filepathRelative = $PSScriptRoot + "\..\MonsterData\MonsterData.xlsx"
+    $filepathRelative = $PSScriptRoot + "\..\resources\word_db.xlsx"
     $sheetName = "Sheet1"
-    $headerLabelBegin = "label"
+    $headerLabelBegin = "id"
     # $headerBeginColumn = 2
     # $headerRaw = 3
     $maxHeaderSize = 32
@@ -93,7 +93,7 @@ function Main() {
         $monsterList = GetMonsterList $sheet $headers $($headerRaw + 1) $headerBeginColumn $maxMonsterSize
 
         $json_obj = @{
-            "monster_list" = $monsterList
+            "word_list" = $monsterList
         }
 
         ConvertTo-Json $json_obj | Out-File $outputFilePath

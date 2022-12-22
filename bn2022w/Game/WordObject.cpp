@@ -3,6 +3,22 @@
 
 WordObject::WordObject()
 {
+	Init();
+}
+
+WordObject::WordObject(Word word)
+{
+	m_id = word.id;
+	Print << Unicode::FromUTF8(word.ja);
+	m_trans["ja"] = Unicode::FromUTF8(word.ja);
+	m_trans["en"] = Unicode::FromUTF8(word.en);
+	m_trans["ko"] = Unicode::FromUTF8(word.ko);
+	m_trans["zh"] = Unicode::FromUTF8(word.zh);
+	Init();
+}
+
+void WordObject::Init()
+{
 	const auto sceneRect = Scene::Rect();
 	constexpr int offset = 100;
 

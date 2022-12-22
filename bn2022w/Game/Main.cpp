@@ -3,6 +3,7 @@
 #include "GameScene.h"
 #include "ResultScene.h"
 #include "SampleScene.h"
+#include "WordReader.h"
 using App = SceneManager<String>;
 
 void Main()

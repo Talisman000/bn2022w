@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <map>
+#include "WordReader.h"
 
 class WordObject
 {
@@ -37,6 +38,8 @@ class WordObject
 
 public:
 	WordObject();
+	WordObject(Word word);
+	void Init();
 	std::string Id();
 	Vec2 Position() const;
 	float ElapsedTime() const;

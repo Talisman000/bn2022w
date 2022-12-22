@@ -1,10 +1,14 @@
 ﻿#pragma once
+
+#include "WordReader.h"
 #include "ProgressBar.h"
 #include "ScoreManager.h"
 #include "WordObject.h"
 using App = SceneManager<String>;
+
 class GameScene : public App::Scene
 {
+	std::vector<Word> m_wordList;
 	Array<std::shared_ptr<WordObject>> m_wordObjects;
 	std::shared_ptr<WordObject> m_selectedWord = nullptr;
 	Effect effect;
@@ -25,4 +29,3 @@ public:
 	void ClearWordObjects();
 	void CreateWordObjects(int n);
 };
-

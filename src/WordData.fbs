@@ -1,0 +1,15 @@
+namespace Bn2022w.WordData;
+
+table Word{
+    id:string;
+    ja:string;
+    en:string;
+    ko:string;
+    zh:string;
+}
+
+table WordList{
+    word_list:[Word];
+}
+
+root_type WordList;

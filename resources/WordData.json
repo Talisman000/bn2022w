@@ -1,0 +1,368 @@
+{
+  "word_list": [
+    {
+      "id": "word_0_love",
+      "ja": "愛",
+      "en": "love",
+      "ko": "사랑",
+      "zh": "爱"
+    },
+    {
+      "id": "word_1_blue",
+      "ja": "青",
+      "en": "blue",
+      "ko": "파란색",
+      "zh": "蓝色的"
+    },
+    {
+      "id": "word_2_red",
+      "ja": "赤",
+      "en": "red",
+      "ko": "빨간색",
+      "zh": "红色的"
+    },
+    {
+      "id": "word_3_leg",
+      "ja": "足",
+      "en": "leg",
+      "ko": "다리",
+      "zh": "腿"
+    },
+    {
+      "id": "word_4_sweat",
+      "ja": "汗",
+      "en": "sweat",
+      "ko": "땀",
+      "zh": "汗"
+    },
+    {
+      "id": "word_5_nightmare",
+      "ja": "悪夢",
+      "en": "nightmare",
+      "ko": "악몽",
+      "zh": "恶梦"
+    },
+    {
+      "id": "word_6_tomorrow",
+      "ja": "明日",
+      "en": "tomorrow",
+      "ko": "내일",
+      "zh": "明天"
+    },
+    {
+      "id": "word_7_play",
+      "ja": "遊び",
+      "en": "play",
+      "ko": "놀다",
+      "zh": "玩"
+    },
+    {
+      "id": "word_8_candy",
+      "ja": "飴",
+      "en": "candy",
+      "ko": "사탕",
+      "zh": "糖果"
+    },
+    {
+      "id": "word_9_rain",
+      "ja": "雨",
+      "en": "rain",
+      "ko": "비",
+      "zh": "雨"
+    },
+    {
+      "id": "word_10_zinc",
+      "ja": "亜鉛",
+      "en": "zinc",
+      "ko": "아연",
+      "zh": "锌"
+    },
+    {
+      "id": "word_11_house",
+      "ja": "家",
+      "en": "house",
+      "ko": "집",
+      "zh": "房子"
+    },
+    {
+      "id": "word_12_meaning",
+      "ja": "意味",
+      "en": "meaning",
+      "ko": "의미",
+      "zh": "意义"
+    },
+    {
+      "id": "word_13_squid",
+      "ja": "イカ",
+      "en": "squid",
+      "ko": "오징어",
+      "zh": "乌贼"
+    },
+    {
+      "id": "word_14_stone",
+      "ja": "石",
+      "en": "stone",
+      "ko": "결석",
+      "zh": "石头"
+    },
+    {
+      "id": "word_15_doctor",
+      "ja": "医者",
+      "en": "doctor",
+      "ko": "박사님",
+      "zh": "医生"
+    },
+    {
+      "id": "word_16_stomach",
+      "ja": "胃袋",
+      "en": "stomach",
+      "ko": "위",
+      "zh": "胃"
+    },
+    {
+      "id": "word_17_colour",
+      "ja": "色",
+      "en": "colour",
+      "ko": "색상",
+      "zh": "颜色"
+    },
+    {
+      "id": "word_18_chair",
+      "ja": "椅子",
+      "en": "chair",
+      "ko": "의자",
+      "zh": "椅子"
+    },
+    {
+      "id": "word_19_dolphin",
+      "ja": "イルカ",
+      "en": "dolphin",
+      "ko": "돌고래",
+      "zh": "海豚"
+    },
+    {
+      "id": "word_20_potato",
+      "ja": "芋",
+      "en": "potato",
+      "ko": "감자",
+      "zh": "土豆"
+    },
+    {
+      "id": "word_21_ink",
+      "ja": "インク",
+      "en": "ink",
+      "ko": "잉크",
+      "zh": "墨水"
+    },
+    {
+      "id": "word_22_ocean",
+      "ja": "海",
+      "en": "ocean",
+      "ko": "대양",
+      "zh": "海洋"
+    },
+    {
+      "id": "word_23_cow",
+      "ja": "牛",
+      "en": "cow",
+      "ko": "암소",
+      "zh": "牛"
+    },
+    {
+      "id": "word_24_plum",
+      "ja": "梅",
+      "en": "plum",
+      "ko": "자두",
+      "zh": "李子"
+    },
+    {
+      "id": "word_25_native",
+      "ja": "うに",
+      "en": "native",
+      "ko": "토종의",
+      "zh": "本国的"
+    },
+    {
+      "id": "word_26_float",
+      "ja": "浮き輪",
+      "en": "float",
+      "ko": "뜨다",
+      "zh": "漂浮"
+    },
+    {
+      "id": "word_27_quail",
+      "ja": "うずら",
+      "en": "quail",
+      "ko": "메추라기",
+      "zh": "鹌鹑"
+    },
+    {
+      "id": "word_28_depression",
+      "ja": "鬱",
+      "en": "depression",
+      "ko": "우울증",
+      "zh": "沮丧"
+    },
+    {
+      "id": "word_29_whirlpool",
+      "ja": "渦巻き",
+      "en": "whirlpool",
+      "ko": "소용돌이",
+      "zh": "惠而浦"
+    },
+    {
+      "id": "word_30_song",
+      "ja": "歌",
+      "en": "song",
+      "ko": "노래",
+      "zh": "歌曲"
+    },
+    {
+      "id": "word_31_detour",
+      "ja": "迂回",
+      "en": "detour",
+      "ko": "우회",
+      "zh": "車輛改道"
+    },
+    {
+      "id": "word_32_smile",
+      "ja": "笑顔",
+      "en": "smile",
+      "ko": "웃다",
+      "zh": "微笑"
+    },
+    {
+      "id": "word_33_pencil",
+      "ja": "えんぴつ",
+      "en": "pencil",
+      "ko": "연필",
+      "zh": "铅笔"
+    },
+    {
+      "id": "word_34_elf",
+      "ja": "エルフ",
+      "en": "elf",
+      "ko": "꼬마 요정",
+      "zh": "精灵"
+    },
+    {
+      "id": "word_35_circle",
+      "ja": "円",
+      "en": "circle",
+      "ko": "원",
+      "zh": "圆圈"
+    },
+    {
+      "id": "word_36_movie",
+      "ja": "映画",
+      "en": "movie",
+      "ko": "영화",
+      "zh": "电影"
+    },
+    {
+      "id": "word_37_honor",
+      "ja": "栄誉",
+      "en": "honor",
+      "ko": "명예",
+      "zh": "荣誉"
+    },
+    {
+      "id": "word_38_picture book",
+      "ja": "絵本",
+      "en": "picture book",
+      "ko": "그림책",
+      "zh": "图画书"
+    },
+    {
+      "id": "word_39_eternity",
+      "ja": "永遠",
+      "en": "eternity",
+      "ko": "영원",
+      "zh": "永恒"
+    },
+    {
+      "id": "word_40_hygiene",
+      "ja": "衛生",
+      "en": "hygiene",
+      "ko": "위생",
+      "zh": "卫生"
+    },
+    {
+      "id": "word_41_nutrition",
+      "ja": "栄養",
+      "en": "nutrition",
+      "ko": "영양물 섭취",
+      "zh": "营养"
+    },
+    {
+      "id": "word_42_music",
+      "ja": "音楽",
+      "en": "music",
+      "ko": "음악",
+      "zh": "音乐"
+    },
+    {
+      "id": "word_43_parent",
+      "ja": "親",
+      "en": "parent",
+      "ko": "부모의",
+      "zh": "父母"
+    },
+    {
+      "id": "word_44_demon",
+      "ja": "鬼",
+      "en": "demon",
+      "ko": "악마",
+      "zh": "恶魔"
+    },
+    {
+      "id": "word_45_kingdom",
+      "ja": "王国",
+      "en": "kingdom",
+      "ko": "왕국",
+      "zh": "王国"
+    },
+    {
+      "id": "word_46_snack",
+      "ja": "お菓子",
+      "en": "snack",
+      "ko": "간식",
+      "zh": "小吃"
+    },
+    {
+      "id": "word_47_mystery",
+      "ja": "奥義",
+      "en": "mystery",
+      "ko": "신비",
+      "zh": "神秘"
+    },
+    {
+      "id": "word_48_fallen leaves",
+      "ja": "落ち葉",
+      "en": "fallen leaves",
+      "ko": "떨어진 잎사귀들",
+      "zh": "落叶"
+    },
+    {
+      "id": "word_49_adult",
+      "ja": "大人",
+      "en": "adult",
+      "ko": "성인",
+      "zh": "成人"
+    },
+    {
+      "id": "word_50_man",
+      "ja": "男",
+      "en": "man",
+      "ko": "남성",
+      "zh": "掌管"
+    },
+    {
+      "id": "word_51_flower",
+      "ja": "お花",
+      "en": "flower",
+      "ko": "꽃",
+      "zh": "花"
+    }
+  ]
+}
