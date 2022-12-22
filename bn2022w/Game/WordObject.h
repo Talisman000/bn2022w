@@ -1,19 +1,39 @@
 ﻿#pragma once
 #include <map>
+
 class WordObject
 {
 	std::string m_id = "id_999_text";
-	bool m_isSelected = false;
-	float m_elapsedTime = 0;
+	// あとでString型に変える
 	std::map<std::string, std::string> m_trans = {
 		{"ja", "テキスト"},
 		{"en", "text"},
 		{"ko", "텍스트"},
 		{"zh", "文"}
 	};
-	Circle m_circle;
-	DrawableText m_text;
+
+
+	// 更新情報
+	// 現在選択されているか？
+	bool m_isSelected = false;
+	// オブジェクトが生成されてからの経過時間
+	float m_elapsedTime = 0;
+	// オブジェクトの現在位置
 	Vec2 m_position;
+	// オブジェクトが到達する目標の位置（画面外に出現して短い時間をかけてこの座標まで到達する）
+	Vec2 m_positionTarget;
+	// オブジェクトの初期位置（線形補間をするために使用）
+	Vec2 m_positionInit;
+
+
+	// 描画関連
+	float m_shapeSize = 40;
+	// 当たり判定として使用
+	Circle m_circle;
+	// 描画用　ぐるぐる回転させる
+	Shape2D m_shape;
+	DrawableText m_text;
+
 
 public:
 	WordObject();
@@ -27,6 +47,4 @@ public:
 	void DeSelect();
 	void update(float delta);
 	void draw() const;
-
 };
-
