@@ -5,11 +5,11 @@ class WordObject
 {
 	std::string m_id = "id_999_text";
 	// あとでString型に変える
-	std::map<std::string, std::string> m_trans = {
-		{"ja", "テキスト"},
-		{"en", "text"},
-		{"ko", "텍스트"},
-		{"zh", "文"}
+	std::map<std::string, String> m_trans = {
+		{"ja", U"テキスト"},
+		{"en", U"text"},
+		{"ko", U"텍스트"},
+		{"zh", U"课本"}
 	};
 
 

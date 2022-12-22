@@ -18,4 +18,5 @@ void ProgressBar::Draw(const Vector2D<int> center, const float width, const floa
 	progressIcon.draw(ColorF(Palette::Black, 0)).drawFrame(2, Palette::Snow);
 	startIcon.draw(Palette::Snow);
 	endIcon.draw(Palette::Snow);
+
 }

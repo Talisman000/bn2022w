@@ -26,12 +26,15 @@ WordObject::WordObject()
 
 	m_circle = Circle{m_position, m_shapeSize};
 	m_shape = Shape2D::Pentagon(m_shapeSize, m_position, Random(180));
-	const auto font = Font{20};
+	const auto font = Font{20, Typeface::CJK_Regular_JP};
+	// addFallbackすると謎のアクセスエラーが出る
+	// const auto fontJP = Font{ 20, Typeface::CJK_Regular_JP };
+	// font.addFallback(fontJP);
 	// ランダムで表示する言語を選択する
 	auto item = m_trans.begin();
 	std::advance(item, Random(m_trans.size() - 1));
 	const auto& key = item->first;
-	const auto text = Unicode::Widen(m_trans[key]);
+	const auto text = m_trans[key];
 	m_text = font(text);
 }
 
