@@ -154,6 +154,12 @@
     <Filter Include="Header Files\Effect">
       <UniqueIdentifier>{6fc0bf1a-7b45-4dc0-96a3-a0437162df63}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Manager">
+      <UniqueIdentifier>{7efff817-ad61-4ee2-9a73-a13850261d84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Manager">
+      <UniqueIdentifier>{b73dc3ff-74df-488e-a8b4-f9317200e89e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -175,7 +181,13 @@
       <Filter>Source Files\Effect</Filter>
     </ClCompile>
     <ClCompile Include="ScoreManager.cpp">
+      <Filter>Source Files\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgressBar.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultScene.cpp">
+      <Filter>Source Files\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -822,7 +834,13 @@
       <Filter>Header Files\Effect</Filter>
     </ClInclude>
     <ClInclude Include="ScoreManager.h">
+      <Filter>Header Files\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgressBar.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultScene.h">
+      <Filter>Header Files\Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

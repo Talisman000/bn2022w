@@ -116,6 +116,8 @@
     <ClCompile Include="BubbleEffect.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="ProgressBar.cpp" />
+    <ClCompile Include="ResultScene.cpp" />
     <ClCompile Include="SampleScene.cpp" />
     <ClCompile Include="ScoreManager.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -320,6 +322,8 @@
   <ItemGroup>
     <ClInclude Include="BubbleEffect.h" />
     <ClInclude Include="GameScene.h" />
+    <ClInclude Include="ProgressBar.h" />
+    <ClInclude Include="ResultScene.h" />
     <ClInclude Include="SampleScene.h" />
     <ClInclude Include="ScoreManager.h" />
     <ClInclude Include="stdafx.h" />

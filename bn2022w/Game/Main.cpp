@@ -1,6 +1,7 @@
 ﻿# include <Siv3D.hpp> // OpenSiv3D v0.6.6
 
 #include "GameScene.h"
+#include "ResultScene.h"
 #include "SampleScene.h"
 using App = SceneManager<String>;
 
@@ -9,9 +10,10 @@ void Main()
 	FontAsset::Register(U"TitleFont", 60, Typeface::Heavy);
 	App manager;
 
-	manager.add<GameScene>(U"Sample");
+	manager.add<GameScene>(U"GameScene");
+	manager.add<ResultScene>(U"ResultScene");
 
-	manager.init(U"SampleScene");
+	manager.init(U"GameScene");
 
 
 	while (System::Update())
