@@ -4,6 +4,7 @@
 TitleScene::TitleScene(const InitData& init) :IScene{ init }
 {
 	Scene::SetBackground(ColorF{0.1, 0.1, 0.1});
+	m_titleText = Font{ 100, Typeface::Light }(U"Wordnnect");
 	auto startWord = Word(U"system_0_start", U"つなげる", U"Connect", U"연결하다", U"连接");
 	auto start_left = WordObject(startWord, "ja");
 	auto start_rignt = WordObject(startWord);
@@ -12,7 +13,6 @@ TitleScene::TitleScene(const InitData& init) :IScene{ init }
 	start_rignt.SetPositionTarget(Vec2(sceneRect.w * 0.7, sceneRect.h * 0.8));
 	m_startObjects << std::make_shared<WordObject>(start_left);
 	m_startObjects << std::make_shared<WordObject>(start_rignt);
-	m_titleText = Font{ 100, Typeface::Light }(U"Wordnnect");
 }
 
 void TitleScene::update()

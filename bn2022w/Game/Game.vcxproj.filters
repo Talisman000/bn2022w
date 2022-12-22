@@ -193,7 +193,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TitleScene.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
