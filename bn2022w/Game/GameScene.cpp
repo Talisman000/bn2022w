@@ -6,14 +6,9 @@
 
 GameScene::GameScene(const InitData& init) : IScene{init}
 {
-	WordReader wordReader;
-	auto list = wordReader.Load();
-	for (auto& word: list)
-	{
-		m_wordList.push_back(word);
-		
-	}
 	Scene::SetBackground(ColorF{0.1, 0.1, 0.1});
+	WordReader wordReader;
+	m_wordList = wordReader.Load();
 	m_scoreManager.reset(new ScoreManager());
 	CreateWordObjects(3);
 
@@ -52,10 +47,10 @@ void GameScene::update()
 			m_scoreManager->AddScore(m_selectedWord->ElapsedTime());
 			m_scoreManager->AddCombo();
 			m_scoreText = Font{28}(Format(m_scoreManager->Score()));
-
+#if _DEBUG
 			Print << m_scoreManager->Score();
 			Print << m_scoreManager->Combo();
-
+#endif
 			// つながった2つのオブジェクトを除外
 			m_wordObjects.remove(obj);
 			m_wordObjects.remove(m_selectedWord);
@@ -68,7 +63,6 @@ void GameScene::update()
 			// オブジェクト選択
 			m_selectedWord = obj;
 			m_selectedWord->Select();
-			Print << Unicode::Widen(m_selectedWord->Id());
 		}
 	}
 	if (m_selectedWord != nullptr)
@@ -109,7 +103,7 @@ void GameScene::ClearWordObjects()
 	m_clearCount++;
 }
 
-void GameScene::CreateWordObjects(int n)
+void GameScene::CreateWordObjects(const int n)
 {
 	Word word = m_wordList[0];
 	for (int i = 0; i < n; i++)

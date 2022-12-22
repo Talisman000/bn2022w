@@ -3,6 +3,7 @@
 #include "GameScene.h"
 #include "ResultScene.h"
 #include "SampleScene.h"
+#include "TitleScene.h"
 #include "WordReader.h"
 using App = SceneManager<String>;
 
@@ -11,10 +12,11 @@ void Main()
 	FontAsset::Register(U"TitleFont", 60, Typeface::Heavy);
 	App manager;
 
+	manager.add<TitleScene>(U"TitleScene");
 	manager.add<GameScene>(U"GameScene");
 	manager.add<ResultScene>(U"ResultScene");
 
-	manager.init(U"GameScene");
+	manager.init(U"TitleScene");
 
 
 	while (System::Update())

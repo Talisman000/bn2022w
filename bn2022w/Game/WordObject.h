@@ -37,9 +37,9 @@ class WordObject
 
 
 public:
-	WordObject();
-	WordObject(Word word);
-	void Init();
+	WordObject(std::string key = "");
+	WordObject(Word word, std::string key = "");
+	void Init(std::string key);
 	std::string Id();
 	Vec2 Position() const;
 	float ElapsedTime() const;
@@ -48,6 +48,7 @@ public:
 	[[nodiscard]] bool IsMouseOver() const;
 	void Select();
 	void DeSelect();
+	void SetPositionTarget(Vec2 pos);
 	void update(float delta);
 	void draw() const;
 };

@@ -1,28 +1,27 @@
 ﻿#include "stdafx.h"
 #include "WordObject.h"
 
-WordObject::WordObject()
+WordObject::WordObject(std::string key)
 {
-	Init();
+	Init(key);
 }
 
-WordObject::WordObject(Word word)
+WordObject::WordObject(Word word, std::string key)
 {
-	m_id = word.id;
-	Print << Unicode::FromUTF8(word.ja);
-	m_trans["ja"] = Unicode::FromUTF8(word.ja);
-	m_trans["en"] = Unicode::FromUTF8(word.en);
-	m_trans["ko"] = Unicode::FromUTF8(word.ko);
-	m_trans["zh"] = Unicode::FromUTF8(word.zh);
-	Init();
+	m_id = word.id.narrow();
+	m_trans["ja"] = word.ja;
+	m_trans["en"] = word.en;
+	m_trans["ko"] = word.ko;
+	m_trans["zh"] = word.zh;
+	Init(key);
 }
 
-void WordObject::Init()
+void WordObject::Init(std::string key)
 {
 	const auto sceneRect = Scene::Rect();
 	constexpr int offset = 100;
 
-	const auto rectFixed = RectF(offset, offset + 40, sceneRect.w - offset*2, sceneRect.h - offset*2);
+	const auto rectFixed = RectF(offset, offset + 40, sceneRect.w - offset * 2, sceneRect.h - offset * 2);
 
 	// 位置はランダム
 	m_positionTarget = RandomVec2(rectFixed);
@@ -40,18 +39,25 @@ void WordObject::Init()
 
 	m_position = m_positionInit;
 
-	m_circle = Circle{m_position, m_shapeSize};
+	m_circle = Circle{ m_position, m_shapeSize };
 	m_shape = Shape2D::Pentagon(m_shapeSize, m_position, Random(180));
-	const auto font = Font{20, Typeface::CJK_Regular_JP};
+	const auto font = Font{ 20, Typeface::CJK_Regular_JP };
 	// addFallbackすると謎のアクセスエラーが出る
 	// const auto fontJP = Font{ 20, Typeface::CJK_Regular_JP };
 	// font.addFallback(fontJP);
-	// ランダムで表示する言語を選択する
-	auto item = m_trans.begin();
-	std::advance(item, Random(m_trans.size() - 1));
-	const auto& key = item->first;
-	const auto text = m_trans[key];
-	m_text = font(text);
+	if (key == "")
+	{
+		// ランダムで表示する言語を選択する
+		auto item = m_trans.begin();
+		std::advance(item, Random(m_trans.size() - 1));
+		const auto& key = item->first;
+		const auto text = m_trans[key];
+		m_text = font(text);
+	}
+	else
+	{
+		m_text = font(m_trans[key]);
+	}
 }
 
 bool WordObject::IsSameWord(std::shared_ptr<WordObject>& other) const
@@ -94,6 +100,12 @@ void WordObject::DeSelect()
 	m_isSelected = false;
 }
 
+void WordObject::SetPositionTarget(const Vec2 pos)
+{
+	Print << pos;
+	m_positionTarget = pos;
+}
+
 void WordObject::update(float delta)
 {
 	m_elapsedTime += delta;
@@ -109,10 +121,11 @@ void WordObject::update(float delta)
 void WordObject::draw() const
 {
 	auto color = Palette::White;
-	if (IsMouseOver()) color = Palette::Yellowgreen;
-	if (m_isSelected) color = Palette::Skyblue;
+	auto alpha = 0.0;
+	if (IsMouseOver()) { color = Palette::Yellowgreen; alpha = 0.4; }
+	if (m_isSelected) { color = Palette::Skyblue; alpha = 0.4; }
 	// m_circle.draw(ColorF{ Palette::Snow, 0 }).drawFrame(2, color);
-	m_shape.draw(ColorF{Palette::Black, 0}).drawFrame(2, color);
+	m_shape.draw(ColorF{ color, alpha }).drawFrame(2, color);
 	m_text.drawAt(m_position + Vec2(1, 1), Palette::Darkgray);
 	m_text.drawAt(m_position, Palette::Snow);
 }

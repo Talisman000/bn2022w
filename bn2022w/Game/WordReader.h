@@ -4,11 +4,11 @@
 
 struct Word
 {
-	const char* id;
-	const char* ja;
-	const char* en;
-	const char* ko;
-	const char* zh;
+	String id;
+	String ja;
+	String en;
+	String ko;
+	String zh;
 };
 
 class WordReader
