@@ -148,6 +148,12 @@
     <Filter Include="Header Files\GameObject">
       <UniqueIdentifier>{e572c6ef-996e-4173-ac47-5b5c7a2e9523}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Effect">
+      <UniqueIdentifier>{110f1b09-9c7b-4651-8f6a-50fc87dce0d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Effect">
+      <UniqueIdentifier>{6fc0bf1a-7b45-4dc0-96a3-a0437162df63}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -164,6 +170,12 @@
     </ClCompile>
     <ClCompile Include="WordObject.cpp">
       <Filter>Source Files\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="BubbleEffect.cpp">
+      <Filter>Source Files\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreManager.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -805,6 +817,12 @@
     </ClInclude>
     <ClInclude Include="WordObject.h">
       <Filter>Header Files\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="BubbleEffect.h">
+      <Filter>Header Files\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
