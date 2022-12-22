@@ -1,13 +1,20 @@
-function LoadExcelSheet($filepath, $sheetName) {
-    # Create excel object
-    $excel = New-Object -ComObject Excel.Application
-    # No visualize
-    $excel.Visible = $false
+function LoadExcelSheet($excel, $filepath, $sheetName) {
     # Load excel file
     $book = $excel.Workbooks.Open($filepath, 0, $true)
     $sheet = $book.Worksheets.Item($sheetName)
     Write-Host "$sheetName を読み込みました！ (path: $filepath)　わーい！"
     return $sheet
+}
+function FindHeaderBegin($sheet, $name, $maxHeaderSize, $maxMonsterSize) {
+    for ($i = 1; $i -lt $maxMonsterSize; $i++) {
+        for($j = 1; $j -lt $maxHeaderSize; $j++){
+            $cell = $sheet.Cells.Item($i, $j)
+            if ($cell.Text -eq $name){
+                return @($i, $j)
+            }
+        }
+    }
+
 }
 function GetHeader($sheet, [int]$headerBeginColumn, [int]$maxHeaderSize) {
     $headers = @()
@@ -61,10 +68,16 @@ function Main() {
     # config
     $filepathRelative = $PSScriptRoot + "\..\MonsterData\MonsterData.xlsx"
     $sheetName = "Sheet1"
-    $headerBeginColumn = 2
-    $headerRaw = 3
+    $headerLabelBegin = "label"
+    # $headerBeginColumn = 2
+    # $headerRaw = 3
     $maxHeaderSize = 32
     $maxMonsterSize = 1024
+
+    # Create excel object
+    $excel = New-Object -ComObject Excel.Application
+    # No visualize
+    $excel.Visible = $false
 
     # Loading excel file needs absolute path
     $filepathAbsolute = (Get-ChildItem $filepathRelative).FullName
@@ -72,11 +85,12 @@ function Main() {
     $outputFilePath = $filepathWithoutExt + ".json"
     
     try {
-        $sheet = LoadExcelSheet $filepathAbsolute $sheetName
+        $sheet = LoadExcelSheet $excel $filepathAbsolute $sheetName
+        $begin = FindHeaderBegin $sheet $headerLabelBegin $maxHeaderSize $maxMonsterSize
+        $headerRaw = $begin[0]
+        $headerBeginColumn = $begin[1]
         $headers = GetHeader $sheet $headerBeginColumn $maxHeaderSize
         $monsterList = GetMonsterList $sheet $headers $($headerRaw + 1) $headerBeginColumn $maxMonsterSize
-
-        # データを取得して連想配列にする
 
         $json_obj = @{
             "monster_list" = $monsterList
@@ -89,7 +103,11 @@ function Main() {
         $errorMessage = $_.Exception.Message
         $errorMessage
     }
+    finally {
+        $excel.Quit()
+    }
     
 }
 
 Main
+[System.GC]::Collect()
