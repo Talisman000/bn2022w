@@ -111,7 +111,7 @@ Resource(engine/font/materialdesignicons/materialdesignicons-webfont.ttf.zstdcmp
 //
 //	Sound Font
 //
-Resource(engine/soundfont/GMGSx.sf2.zstdcmp)
+//Resource(engine/soundfont/GMGSx.sf2.zstdcmp)
 
 //////////////////////////////////////////////////////
 //
@@ -122,6 +122,8 @@ Resource(engine/soundfont/GMGSx.sf2.zstdcmp)
 
 Resource(resources/WordData.bin)
 Resource(resources/SystemData.bin)
+Resource(resources/wordnnect.ogg)
+Resource(resources/se_connect.ogg)
 
 /* examples 
 

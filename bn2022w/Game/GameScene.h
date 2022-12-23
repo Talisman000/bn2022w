@@ -13,7 +13,7 @@ class GameScene : public App::Scene
 	Array<std::shared_ptr<WordObject>> m_wordObjects;
 	std::shared_ptr<WordObject> m_selectedWord = nullptr;
 	Effect m_effect;
-	float m_timeLimit = 60;
+	float m_timeLimit = 64;
 	float m_elapsedTime = 0;
 	int m_clearCount = 0;
 
@@ -21,6 +21,9 @@ class GameScene : public App::Scene
 	DrawableText m_scoreTextHeader;
 	DrawableText m_scoreText;
 	ProgressBar m_progressBar;
+
+	Audio m_bgm;
+	Audio m_seConnect;
 
 public:
 	GameScene(const InitData& init);

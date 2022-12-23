@@ -13,6 +13,11 @@ GameScene::GameScene(const InitData& init) : IScene{ init }
 
 	m_scoreTextHeader = Font{ 20 }(U"Score");
 	m_scoreText = Font{ 28 }(U"0");
+
+	// audio
+	m_bgm = Audio{Audio::Stream, Resource(U"resources/wordnnect.ogg")};
+	m_bgm.play();
+	m_seConnect = Audio{Audio::Stream, Resource(U"resources/se_connect.ogg")};
 }
 
 void GameScene::update()
@@ -43,6 +48,7 @@ void GameScene::update()
 			// エフェクト出現
 			m_effect.add<BubbleEffect>(obj->Position(), Random(0.0, 360.0));
 			m_effect.add<BubbleEffect>(m_selectedWord->Position(), Random(0.0, 360.0));
+			m_seConnect.playOneShot();
 			// スコア加算
 			m_scoreManager->ApplyConnect();
 			m_scoreManager->AddScore(m_selectedWord->ElapsedTime());
