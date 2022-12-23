@@ -120,6 +120,8 @@ Resource(engine/soundfont/GMGSx.sf2.zstdcmp)
 //////////////////////////////////////////////////////
 
 
+Resource(resources/WordData.bin)
+Resource(resources/SystemData.bin)
 
 /* examples 
 

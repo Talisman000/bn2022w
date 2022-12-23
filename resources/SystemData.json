@@ -1,0 +1,18 @@
+{
+  "word_list": [
+    {
+      "id": "system_0_connect",
+      "ja": "つなげる",
+      "en": "connect",
+      "ko": "연결하다",
+      "zh": "连接"
+    },
+    {
+      "id": "system_1_dummy",
+      "ja": "test",
+      "en": "test",
+      "ko": "test",
+      "zh": "test"
+    }
+  ]
+}

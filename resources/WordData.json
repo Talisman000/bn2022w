@@ -355,7 +355,7 @@
       "ja": "男",
       "en": "man",
       "ko": "남성",
-      "zh": "掌管"
+      "zh": "男"
     },
     {
       "id": "word_51_flower",
@@ -363,6 +363,69 @@
       "en": "flower",
       "ko": "꽃",
       "zh": "花"
+    },
+    {
+      "id": "word_52_cat",
+      "ja": "猫",
+      "en": "cat",
+      "ko": "고양이",
+      "zh": "猫"
+    },
+    {
+      "id": "word_53_dog",
+      "ja": "犬",
+      "en": "dog",
+      "ko": "개",
+      "zh": "狗"
+    },
+    {
+      "id": "word_54_fish",
+      "ja": "魚",
+      "en": "fish",
+      "ko": "생선",
+      "zh": "鱼"
+    },
+    {
+      "id": "word_55_egg",
+      "ja": "卵",
+      "en": "egg",
+      "ko": "계란",
+      "zh": "蛋"
+    },
+    {
+      "id": "word_56_star",
+      "ja": "星",
+      "en": "star",
+      "ko": "별",
+      "zh": "星星"
+    },
+    {
+      "id": "word_57_clock",
+      "ja": "時計",
+      "en": "clock",
+      "ko": "시계",
+      "zh": "钟"
+    },
+    {
+      "id": "word_58_library",
+      "ja": "図書館",
+      "en": "library",
+      "ko": "도서관",
+      "zh": "图书馆"
+    },
+    {
+      "id": "word_59_computer",
+      "ja": "パソコン",
+      "en": "computer",
+      "ko": "컴퓨터",
+      "zh": "电脑"
+    },
+    {
+      "id": "word_60_pikachu",
+      "ja": "ピカチュウ",
+      "en": "pikachu",
+      "ko": "피카추",
+      "zh": "皮卡丘"
     }
   ]
 }
