@@ -7,8 +7,8 @@ ResultScene::ResultScene(const InitData& init) : IScene{ init }
 	m_resultHeaderText = Font{ 100, Typeface::Light }(U"Result");
 	m_gotoTitleText = Font{ 24, Typeface::Light }(U"Left Click -------- Title");
 	const auto& result = getData<Result>();
-	m_resultTextHeader = Font{ 24, Typeface::Light }(U"Score\nConnect\nMax Combo");
-	m_resultText = Font{ 24, Typeface::Light }(U"{}\n{}\n{}"_fmt(result.m_score, result.m_maxCombo, result.m_connectCount));
+	m_resultTextHeader = Font{ 24, Typeface::Light }(U"Score\nConnect");
+	m_resultText = Font{ 24, Typeface::Light }(U"{}\n{}"_fmt(result.m_score, result.m_connectCount));
 }
 
 void ResultScene::update()
