@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "WordObject.h"
-using App = SceneManager<String>;
+#include "SharedStruct.h"
+using App = SceneManager<String, Result>;
 class TitleScene : public App::Scene
 {
 	Array<std::shared_ptr<WordObject>> m_startObjects;

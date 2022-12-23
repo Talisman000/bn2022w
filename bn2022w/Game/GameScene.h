@@ -4,7 +4,8 @@
 #include "ProgressBar.h"
 #include "ScoreManager.h"
 #include "WordObject.h"
-using App = SceneManager<String>;
+#include "SharedStruct.h"
+using App = SceneManager<String, Result>;
 
 class GameScene : public App::Scene
 {

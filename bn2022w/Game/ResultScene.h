@@ -1,9 +1,12 @@
 ﻿#pragma once
-using App = SceneManager<String>;
+#include "SharedStruct.h"
+using App = SceneManager<String, Result>;
 class ResultScene : public App::Scene
 {
-	DrawableText m_resultText;
+	DrawableText m_resultHeaderText;
 	DrawableText m_gotoTitleText;
+	DrawableText m_resultTextHeader;
+	DrawableText m_resultText;
 	float m_elapsedTime = 0;
 	float m_gotoTitleWaitTime = 3;
 public:

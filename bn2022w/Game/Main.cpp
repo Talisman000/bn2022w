@@ -2,10 +2,10 @@
 
 #include "GameScene.h"
 #include "ResultScene.h"
-#include "SampleScene.h"
+#include "SharedStruct.h"
 #include "TitleScene.h"
-#include "WordReader.h"
-using App = SceneManager<String>;
+
+using App = SceneManager<String, Result>;
 
 void Main()
 {

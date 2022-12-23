@@ -11,18 +11,25 @@ int ScoreManager::Combo() const
 	return m_combo;
 }
 
+Result ScoreManager::GetResult() const
+{
+	const Result result(m_score, m_connectCount, m_maxCombo);
+	return result;
+}
+
 void ScoreManager::ResetCombo()
 {
+	m_combo = 0;
+}
+
+void ScoreManager::ApplyConnect(int connectCount)
+{
+	m_connectCount += connectCount;
+	m_combo += connectCount;
 	if (m_maxCombo < m_combo)
 	{
 		m_maxCombo = m_combo;
 	}
-	m_combo = 0;
-}
-
-void ScoreManager::AddCombo(const int add)
-{
-	m_combo += add;
 }
 
 //スコアは基本スコアからの減点方式（出現からの時間がたてば立つほどスコアが小さくなる）

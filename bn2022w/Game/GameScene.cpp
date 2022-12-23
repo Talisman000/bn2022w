@@ -21,6 +21,7 @@ void GameScene::update()
 	m_elapsedTime += Scene::DeltaTime();
 	if (m_elapsedTime > m_timeLimit)
 	{
+		getData<Result>() = m_scoreManager->GetResult();
 		changeScene(U"ResultScene");
 	}
 	if (m_wordObjects.size() < 2)
@@ -44,8 +45,8 @@ void GameScene::update()
 			effect.add<BubbleEffect>(obj->Position(), Random(0.0, 360.0));
 			effect.add<BubbleEffect>(m_selectedWord->Position(), Random(0.0, 360.0));
 			// スコア加算
+			m_scoreManager->ApplyConnect();
 			m_scoreManager->AddScore(m_selectedWord->ElapsedTime());
-			m_scoreManager->AddCombo();
 			m_scoreText = Font{ 28 }(Format(m_scoreManager->Score()));
 #if _DEBUG
 			Print << m_scoreManager->Score();

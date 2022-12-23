@@ -32,9 +32,9 @@ HashTable<String, Word> WordReader::Load()
 	}
 
 #if _DEBUG
-	for (const auto& word: WordList)
+	for (const auto& word: table)
 	{
-		Print << word.id;
+		Print << word.second.id;
 	}
 #endif
 	return table;
