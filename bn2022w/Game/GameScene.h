@@ -12,7 +12,7 @@ class GameScene : public App::Scene
 	HashTable<String, Word> m_wordTable;
 	Array<std::shared_ptr<WordObject>> m_wordObjects;
 	std::shared_ptr<WordObject> m_selectedWord = nullptr;
-	Effect effect;
+	Effect m_effect;
 	float m_timeLimit = 60;
 	float m_elapsedTime = 0;
 	int m_clearCount = 0;

@@ -41,8 +41,8 @@ void GameScene::update()
 			if (obj == m_selectedWord) continue;
 			if (!m_selectedWord->IsSameWord(obj)) continue;
 			// エフェクト出現
-			effect.add<BubbleEffect>(obj->Position(), Random(0.0, 360.0));
-			effect.add<BubbleEffect>(m_selectedWord->Position(), Random(0.0, 360.0));
+			m_effect.add<BubbleEffect>(obj->Position(), Random(0.0, 360.0));
+			m_effect.add<BubbleEffect>(m_selectedWord->Position(), Random(0.0, 360.0));
 			// スコア加算
 			m_scoreManager->ApplyConnect();
 			m_scoreManager->AddScore(m_selectedWord->ElapsedTime());
@@ -73,7 +73,7 @@ void GameScene::update()
 			m_selectedWord = nullptr;
 		}
 	}
-	effect.update();
+	m_effect.update();
 }
 
 void GameScene::draw() const
