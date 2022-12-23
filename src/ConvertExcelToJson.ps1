@@ -1,15 +1,22 @@
+Param(
+    [parameter(mandatory)][string]$fileName = "",
+    [string]$sheetName = "Sheet1",
+    [string]$headerLabelBegin = "id",
+    $maxHeaderSize = 32,
+    $maxWordSize = 1024
+)
 function LoadExcelSheet($excel, $filepath, $sheetName) {
     # Load excel file
     $book = $excel.Workbooks.Open($filepath, 0, $true)
     $sheet = $book.Worksheets.Item($sheetName)
-    Write-Host "$sheetName を読み込みました！ (path: $filepath)　わーい！"
+    Write-Host "$sheetName を読み込みました！ (path: $filepath) わーい！"
     return $sheet
 }
-function FindHeaderBegin($sheet, $name, $maxHeaderSize, $maxMonsterSize) {
-    for ($i = 1; $i -lt $maxMonsterSize; $i++) {
-        for($j = 1; $j -lt $maxHeaderSize; $j++){
+function FindHeaderBegin($sheet, $name, $maxHeaderSize, $maxWordSize) {
+    for ($i = 1; $i -lt $maxWordSize; $i++) {
+        for ($j = 1; $j -lt $maxHeaderSize; $j++) {
             $cell = $sheet.Cells.Item($i, $j)
-            if ($cell.Text -eq $name){
+            if ($cell.Text -eq $name) {
                 return @($i, $j)
             }
         }
@@ -31,10 +38,10 @@ function GetHeader($sheet, [int]$headerBeginColumn, [int]$maxHeaderSize) {
     return $headers
 }
 
-function GetMonsterList($sheet, $headers, $dataRawBegin, $dataColumnBegin, $maxMonsterSize) {
+function GetwordList($sheet, $headers, $dataRawBegin, $dataColumnBegin, $maxWordSize) {
     # ゴリ押し実装です
-    $monsterList = @()
-    for ($i = $dataRawBegin; $i -lt $dataRawBegin + $maxMonsterSize; $i++) {
+    $wordList = @()
+    for ($i = $dataRawBegin; $i -lt $dataRawBegin + $maxWordSize; $i++) {
         $map = [ordered]@{}
         $check = $sheet.Cells.Item($i, $dataColumnBegin)
         # その行のラベル列が空の場合モンスターデータの最後尾を過ぎたとみなす
@@ -52,11 +59,11 @@ function GetMonsterList($sheet, $headers, $dataRawBegin, $dataColumnBegin, $maxM
                 $map.Add($headers[$j], $cell.Text)
             }
         }
-        $monsterList += $map
+        $wordList += $map
     }
-    $monsterCount = $monsterList.Count
-    Write-Host "モンスター情報を読み込みました！ (データ数: $monsterCount) わーい！"
-    return $monsterList
+    $wordCount = $wordList.Count
+    Write-Host "Word情報を読み込みました！ (データ数: $wordCount) わーい！"
+    return $wordList
 }
 
 # 以下のデータの仕様を想定する
@@ -65,15 +72,8 @@ function GetMonsterList($sheet, $headers, $dataRawBegin, $dataColumnBegin, $maxM
 # - モンスターのサイズは可変。最後の行以降は何も情報が無い
 
 function Main() {
-    # config
-    $filepathRelative = $PSScriptRoot + "\..\resources\word_db.xlsx"
-    $sheetName = "Sheet1"
-    $headerLabelBegin = "id"
-    # $headerBeginColumn = 2
-    # $headerRaw = 3
-    $maxHeaderSize = 32
-    $maxMonsterSize = 1024
 
+    $filepathRelative = $PSScriptRoot + "\..\resources\" + $Filename
     # Create excel object
     $excel = New-Object -ComObject Excel.Application
     # No visualize
@@ -86,14 +86,14 @@ function Main() {
     
     try {
         $sheet = LoadExcelSheet $excel $filepathAbsolute $sheetName
-        $begin = FindHeaderBegin $sheet $headerLabelBegin $maxHeaderSize $maxMonsterSize
+        $begin = FindHeaderBegin $sheet $headerLabelBegin $maxHeaderSize $maxWordSize
         $headerRaw = $begin[0]
         $headerBeginColumn = $begin[1]
         $headers = GetHeader $sheet $headerBeginColumn $maxHeaderSize
-        $monsterList = GetMonsterList $sheet $headers $($headerRaw + 1) $headerBeginColumn $maxMonsterSize
+        $wordList = GetwordList $sheet $headers $($headerRaw + 1) $headerBeginColumn $maxWordSize
 
         $json_obj = @{
-            "word_list" = $monsterList
+            "word_list" = $wordList
         }
 
         ConvertTo-Json $json_obj | Out-File $outputFilePath
