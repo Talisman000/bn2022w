@@ -1,22 +1,22 @@
 ﻿#include "stdafx.h"
 #include "WordObject.h"
 
-WordObject::WordObject(std::string key)
+WordObject::WordObject(const std::string key)
 {
 	Init(key);
 }
 
-WordObject::WordObject(Word word, std::string key)
+WordObject::WordObject(const Word& word, std::string key)
 {
-	m_id = word.id.narrow();
+	m_id = word.id;
 	m_trans["ja"] = word.ja;
 	m_trans["en"] = word.en;
 	m_trans["ko"] = word.ko;
 	m_trans["zh"] = word.zh;
-	Init(key);
+	Init(std::move(key));
 }
 
-void WordObject::Init(std::string key)
+void WordObject::Init(const std::string key)
 {
 	const auto sceneRect = Scene::Rect();
 	constexpr int offset = 100;
@@ -50,8 +50,7 @@ void WordObject::Init(std::string key)
 		// ランダムで表示する言語を選択する
 		auto item = m_trans.begin();
 		std::advance(item, Random(m_trans.size() - 1));
-		const auto& key = item->first;
-		const auto text = m_trans[key];
+		const auto text = item->second;
 		m_text = font(text);
 	}
 	else
@@ -65,7 +64,7 @@ bool WordObject::IsSameWord(std::shared_ptr<WordObject>& other) const
 	return m_id == other->Id();
 }
 
-std::string WordObject::Id()
+String WordObject::Id()
 {
 	return m_id;
 }

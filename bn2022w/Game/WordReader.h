@@ -14,6 +14,6 @@ struct Word
 class WordReader
 {
 public:
-	std::vector<Word> Load();
+	HashTable<String, Word> Load();
 };
 

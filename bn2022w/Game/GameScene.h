@@ -8,7 +8,7 @@ using App = SceneManager<String>;
 
 class GameScene : public App::Scene
 {
-	std::vector<Word> m_wordList;
+	HashTable<String, Word> m_wordTable;
 	Array<std::shared_ptr<WordObject>> m_wordObjects;
 	std::shared_ptr<WordObject> m_selectedWord = nullptr;
 	Effect effect;

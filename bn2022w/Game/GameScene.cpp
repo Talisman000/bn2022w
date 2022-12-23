@@ -4,16 +4,16 @@
 #include "BubbleEffect.h"
 #include "WordReader.h"
 
-GameScene::GameScene(const InitData& init) : IScene{init}
+GameScene::GameScene(const InitData& init) : IScene{ init }
 {
-	Scene::SetBackground(ColorF{0.1, 0.1, 0.1});
+	Scene::SetBackground(ColorF{ 0.1, 0.1, 0.1 });
 	WordReader wordReader;
-	m_wordList = wordReader.Load();
+	m_wordTable = wordReader.Load();
 	m_scoreManager.reset(new ScoreManager());
 	CreateWordObjects(3);
 
-	m_scoreTextHeader = Font{20}(U"Score");
-	m_scoreText = Font{28}(U"0");
+	m_scoreTextHeader = Font{ 20 }(U"Score");
+	m_scoreText = Font{ 28 }(U"0");
 }
 
 void GameScene::update()
@@ -46,7 +46,7 @@ void GameScene::update()
 			// スコア加算
 			m_scoreManager->AddScore(m_selectedWord->ElapsedTime());
 			m_scoreManager->AddCombo();
-			m_scoreText = Font{28}(Format(m_scoreManager->Score()));
+			m_scoreText = Font{ 28 }(Format(m_scoreManager->Score()));
 #if _DEBUG
 			Print << m_scoreManager->Score();
 			Print << m_scoreManager->Combo();
@@ -85,7 +85,7 @@ void GameScene::draw() const
 	m_scoreText.drawAt(x, 48, Palette::Snow);
 
 	m_progressBar.Draw(Vector2D(sceneRect.rightX() / 2, sceneRect.topY() + 80), sceneRect.w - 50,
-	                   m_elapsedTime / m_timeLimit);
+					   m_elapsedTime / m_timeLimit);
 
 	if (m_selectedWord != nullptr)
 	{
@@ -105,13 +105,14 @@ void GameScene::ClearWordObjects()
 
 void GameScene::CreateWordObjects(const int n)
 {
-	Word word = m_wordList[0];
+	Word word = m_wordTable.begin()->second;
 	for (int i = 0; i < n; i++)
 	{
 		if (IsEven(i))
 		{
-			const auto random = Random(m_wordList.size() - 1);
-			word = m_wordList[random];
+			auto item = m_wordTable.begin();
+			std::advance(item, Random(m_wordTable.size() - 1));
+			word = item->second;
 		}
 		auto obj = std::make_shared<WordObject>(word);
 		m_wordObjects << obj;

@@ -4,9 +4,8 @@
 
 class WordObject
 {
-	std::string m_id = "id_999_text";
-	// あとでString型に変える
-	std::map<std::string, String> m_trans = {
+	String m_id = U"debug_text";
+	HashTable<std::string, String> m_trans = {
 		{"ja", U"テキスト"},
 		{"en", U"text"},
 		{"ko", U"텍스트"},
@@ -38,9 +37,9 @@ class WordObject
 
 public:
 	WordObject(std::string key = "");
-	WordObject(Word word, std::string key = "");
+	WordObject(const Word& word, std::string key = "");
 	void Init(std::string key);
-	std::string Id();
+	String Id();
 	Vec2 Position() const;
 	float ElapsedTime() const;
 	[[nodiscard]] bool IsSameWord(std::shared_ptr<WordObject>& other) const;

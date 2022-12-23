@@ -2,10 +2,11 @@
 #include "WordReader.h"
 
 
-std::vector<Word> WordReader::Load()
+// idをキーとしたWordクラスのハッシュテーブルとして読み込む
+HashTable<String, Word> WordReader::Load()
 {
+	HashTable<String, Word> table;
 	std::vector<uint8_t> dataBuffer;
-	std::vector<Word> WordList;
 	BinaryReader reader(U"../Resources/WordData.bin");
 	if (reader)
 	{
@@ -22,7 +23,7 @@ std::vector<Word> WordReader::Load()
 				Unicode::FromUTF8(it->ko()->c_str()),
 				Unicode::FromUTF8(it->zh()->c_str())
 			);
-			WordList.push_back(word);
+			table.emplace(word.id, word);
 		}
 	}
 	else
@@ -36,5 +37,5 @@ std::vector<Word> WordReader::Load()
 		Print << word.id;
 	}
 #endif
-	return WordList;
+	return table;
 }
