@@ -9,6 +9,7 @@ using App = SceneManager<String, Result>;
 
 void Main()
 {
+	Window::SetTitle(U"Wordnnect");
 	FontAsset::Register(U"TitleFont", 60, Typeface::Heavy);
 	App manager;
 
