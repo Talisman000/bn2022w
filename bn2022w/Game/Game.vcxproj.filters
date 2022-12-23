@@ -198,6 +198,9 @@
     <ClCompile Include="SharedStruct.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AddScoreEffect.cpp">
+      <Filter>Source Files\Effect</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -868,6 +871,9 @@
     </ClInclude>
     <ClInclude Include="SharedStruct.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AddScoreEffect.h">
+      <Filter>Header Files\Effect</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

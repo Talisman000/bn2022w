@@ -29,9 +29,9 @@ bool BubbleEffect::update(double t)
 		const double e = EaseOutExpo(t2);
 
 		Circle{ (m_pos + bubble.offset + (bubble.offset * 4 * t)), (e * 40 * bubble.scale) }
-			.draw(ColorF{ bubble.color, 0.15 * (lifeTime - t) / lifeTime })
-			.drawFrame((30.0 * (1.0 - e) * bubble.scale), ColorF(bubble.color, 1 * (lifeTime - t) / lifeTime));
+			.draw(ColorF{ bubble.color, 0.15 * (m_lifeTime - t) / m_lifeTime })
+			.drawFrame((30.0 * (1.0 - e) * bubble.scale), ColorF(bubble.color, 1 * (m_lifeTime - t) / m_lifeTime));
 	}
 
-	return (t < lifeTime);
+	return (t < m_lifeTime);
 }

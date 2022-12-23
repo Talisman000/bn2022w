@@ -116,6 +116,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddScoreEffect.cpp" />
     <ClCompile Include="BubbleEffect.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -328,6 +329,7 @@
     <Xml Include="App\example\xml\test.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddScoreEffect.h" />
     <ClInclude Include="App\resource.h" />
     <ClInclude Include="BubbleEffect.h" />
     <ClInclude Include="GameScene.h" />

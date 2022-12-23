@@ -1,7 +1,7 @@
 ﻿#include "stdafx.h"
 #include "TitleScene.h"
 
-const String kVersion = U"ver.0.2.0";
+const String kVersion = U"ver.1.0.0";
 TitleScene::TitleScene(const InitData& init) :IScene{ init }
 {
 	Scene::SetBackground(ColorF{ 0.1, 0.1, 0.1 });

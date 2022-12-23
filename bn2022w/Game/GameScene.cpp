@@ -1,6 +1,7 @@
 ﻿#include "stdafx.h"
 #include "GameScene.h"
 
+#include "AddScoreEffect.h"
 #include "BubbleEffect.h"
 #include "WordReader.h"
 
@@ -15,14 +16,18 @@ GameScene::GameScene(const InitData& init) : IScene{ init }
 	m_scoreText = Font{ 28 }(U"0");
 
 	// audio
-	m_bgm = Audio{Audio::Stream, Resource(U"resources/wordnnect.ogg")};
+	m_bgm = Audio{ Audio::Stream, Resource(U"resources/wordnnect.ogg") };
 	m_bgm.play();
-	m_seConnect = Audio{Audio::Stream, Resource(U"resources/se_connect.ogg")};
+	m_seConnect = Audio{ Audio::Stream, Resource(U"resources/se_connect.ogg") };
 }
 
 void GameScene::update()
 {
 	m_elapsedTime += Scene::DeltaTime();
+	if (KeyQ.down())
+	{
+		changeScene(U"TitleScene");
+	}
 	if (m_elapsedTime > m_timeLimit)
 	{
 		getData<Result>() = m_scoreManager->GetResult();
@@ -45,14 +50,16 @@ void GameScene::update()
 			if (!obj->IsMouseOver()) continue;
 			if (obj == m_selectedWord) continue;
 			if (!m_selectedWord->IsSameWord(obj)) continue;
+			// スコア加算
+			m_scoreManager->ApplyConnect();
+			auto addScore = m_scoreManager->AddScore(m_selectedWord->ElapsedTime());
+			m_scoreText = Font{ 28 }(Format(m_scoreManager->Score()));
 			// エフェクト出現
 			m_effect.add<BubbleEffect>(obj->Position(), Random(0.0, 360.0));
 			m_effect.add<BubbleEffect>(m_selectedWord->Position(), Random(0.0, 360.0));
+			auto middle = obj->Position().lerp(m_selectedWord->Position(), 0.5f);
+			m_effect.add<AddScoreEffect>(middle, addScore, Palette::Snow);
 			m_seConnect.playOneShot();
-			// スコア加算
-			m_scoreManager->ApplyConnect();
-			m_scoreManager->AddScore(m_selectedWord->ElapsedTime());
-			m_scoreText = Font{ 28 }(Format(m_scoreManager->Score()));
 #if _DEBUG
 			Print << m_scoreManager->Score();
 			Print << m_scoreManager->Combo();

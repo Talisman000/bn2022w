@@ -33,10 +33,11 @@ void ScoreManager::ApplyConnect(int connectCount)
 }
 
 //スコアは基本スコアからの減点方式（出現からの時間がたてば立つほどスコアが小さくなる）
-void ScoreManager::AddScore(const float time)
+int ScoreManager::AddScore(const float time)
 {
 	const auto magnification = (m_scoreDecay - time) / m_scoreDecay;
 	auto add = static_cast<int>(static_cast<float>(m_scoreBase) * magnification * (1 + static_cast<float>(m_combo) * 0.1f));
 	if (add < m_scoreMin) add = m_scoreMin;
 	m_score += add;
+	return add;
 }

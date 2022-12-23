@@ -17,6 +17,6 @@ public:
 	Result GetResult() const;
 	void ResetCombo();
 	void ApplyConnect(int connectCount = 1);
-	void AddScore(float time);
+	int AddScore(float time);
 };
 

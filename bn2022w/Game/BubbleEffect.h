@@ -13,7 +13,7 @@ struct BubbleEffect : IEffect
 
 	Vec2 m_pos;
 	Array<Bubble> m_bubbles;
-	float lifeTime = 0.5f;
+	float m_lifeTime = 0.5f;
 
 	BubbleEffect(const Vec2& pos, double baseHue);
 	bool update(double t) override;
