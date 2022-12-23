@@ -14,9 +14,9 @@
 F1を押すと、ライセンス情報を表示できます。
 
 ## 制作環境
-Siv3D
-Visual Studio 2022
-ReSharper
+- Siv3D
+- Visual Studio 2022
+- ReSharper
 
 ## 制作期間
 2日半
