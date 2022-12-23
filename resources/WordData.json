@@ -176,11 +176,11 @@
       "zh": "李子"
     },
     {
-      "id": "word_25_native",
+      "id": "word_25_sea ​​urchin",
       "ja": "うに",
-      "en": "native",
-      "ko": "토종의",
-      "zh": "本国的"
+      "en": "sea ​​urchin",
+      "ko": "성게",
+      "zh": "海胆"
     },
     {
       "id": "word_26_float",
@@ -331,7 +331,7 @@
     },
     {
       "id": "word_47_mystery",
-      "ja": "奥義",
+      "ja": "神秘",
       "en": "mystery",
       "ko": "신비",
       "zh": "神秘"
