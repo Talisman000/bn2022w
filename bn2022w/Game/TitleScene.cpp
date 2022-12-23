@@ -1,13 +1,14 @@
 ﻿#include "stdafx.h"
 #include "TitleScene.h"
 
-const String kVersion = U"ver.0.1.0";
+const String kVersion = U"ver.0.2.0";
 TitleScene::TitleScene(const InitData& init) :IScene{ init }
 {
 	Scene::SetBackground(ColorF{ 0.1, 0.1, 0.1 });
 	m_titleText = Font{ 100, Typeface::Light }(U"Wordnnect");
 	m_versionText = Font{ 18, Typeface::Light }(kVersion);
-	auto startWord = Word(U"system_0_start", U"つなげる", U"Connect", U"연결하다", U"连接");
+	auto systemWordTable = WordReader::Load(U"resources/SystemData.bin");
+	auto startWord = systemWordTable[U"system_0_connect"];
 	auto start_left = WordObject(startWord, "ja");
 	auto start_rignt = WordObject(startWord);
 	auto sceneRect = Scene::Rect();

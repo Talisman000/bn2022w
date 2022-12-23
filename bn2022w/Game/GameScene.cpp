@@ -7,8 +7,7 @@
 GameScene::GameScene(const InitData& init) : IScene{ init }
 {
 	Scene::SetBackground(ColorF{ 0.1, 0.1, 0.1 });
-	WordReader wordReader;
-	m_wordTable = wordReader.Load();
+	m_wordTable = WordReader::Load(U"resources/WordData.bin");
 	m_scoreManager.reset(new ScoreManager());
 	CreateWordObjects(3);
 
