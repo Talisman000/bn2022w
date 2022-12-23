@@ -3,12 +3,11 @@
 
 
 // idをキーとしたWordクラスのハッシュテーブルとして読み込む
-HashTable<String, Word> WordReader::Load()
+HashTable<String, Word> WordReader::Load(const String resourcePath)
 {
 	HashTable<String, Word> table;
 	std::vector<uint8_t> dataBuffer;
-	BinaryReader reader(U"../Resources/WordData.bin");
-	if (reader)
+	if (BinaryReader reader{Resource(resourcePath)})
 	{
 		dataBuffer.resize(reader.size());
 		reader.read(dataBuffer.data(), reader.size());
@@ -32,9 +31,9 @@ HashTable<String, Word> WordReader::Load()
 	}
 
 #if _DEBUG
-	for (const auto& word: table)
+	for (const auto& val : table | std::views::values)
 	{
-		Print << word.second.id;
+		Print << val.id;
 	}
 #endif
 	return table;

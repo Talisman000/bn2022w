@@ -14,6 +14,6 @@ struct Word
 class WordReader
 {
 public:
-	HashTable<String, Word> Load();
+	static HashTable<String, Word> Load(String resourcePath);
 };
 
