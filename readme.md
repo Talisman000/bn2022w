@@ -1,4 +1,5 @@
 # Wordnnect
+![bn2022w](https://user-images.githubusercontent.com/43210554/211156190-49e7abff-5ada-4bfb-996c-f8975952695b.jpg)
 
 ### [ダウンロード](https://github.com/Talisman000/bn2022w/releases/download/1.0.0/Wordnnect100Win.zip)
 
